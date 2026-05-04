@@ -278,11 +278,11 @@ def get_popular_pipelines(lang: str = "en", limit: int = 10) -> dict:
 @mcp.tool()
 def build_custom_pipeline_url(task: str, lang: str = "en") -> dict:
     """For a custom task (no existing pipeline matches), get a deep link to the
-    AI Pipeline Builder on thedailyworkflow.com.
+    Pipeline Builder on thedailyworkflow.com.
 
-    The builder uses DeepSeek to compose a step-by-step pipeline from 15000+ AI tools,
-    with ready-to-paste prompts. This is a paid LLM operation, so the MCP server doesn't
-    run it directly — it returns the prefilled URL where the user can run it.
+    The builder composes a step-by-step pipeline from 15000+ AI tools with
+    ready-to-paste prompts. The MCP server doesn't run it directly — it returns
+    the prefilled URL where the user can run it.
 
     Args:
         task: Description of what the user wants to accomplish. Example:

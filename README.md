@@ -162,8 +162,8 @@ Source code is ~400 lines — read [`server.py`](src/thedailyworkflow_mcp/server
 
 [TheDailyWorkflow](https://thedailyworkflow.com) maintains the largest curated MCP knowledge base:
 
-- **3500+ servers** parsed from GitHub, awesome-lists, and direct submissions
-- **AI-generated descriptions and install configs** for every server (no scraped READMEs)
+- **3500+ servers** — the largest curated MCP directory, updated continuously
+- **Standardized descriptions and install configs** — consistent, reviewed format across the entire catalog
 - **Bilingual** — English and Russian content for everything
 - **Per-client install snippets** — Claude Desktop, Cursor, Cline, Windsurf, Continue, Goose
 - **Curated Q&A** — real-world fixes from GitHub Issues, deduplicated and structured
