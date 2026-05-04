@@ -1,0 +1,42 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "thedailyworkflow-mcp"
+version = "0.3.0"
+description = "MCP server bridging Claude/Cursor to thedailyworkflow.com — discover 3500+ MCP servers, 15000+ AI tools, 200+ pipelines, 147+ tutorials, 147+ Q&A cases, 1700+ prompts."
+readme = "README.md"
+license = {text = "MIT"}
+requires-python = ">=3.10"
+authors = [
+    {name = "TheDailyWorkflow", email = "hello@thedailyworkflow.com"},
+]
+keywords = ["mcp", "model-context-protocol", "claude", "cursor", "anthropic", "ai", "directory", "discovery"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Software Development :: Libraries",
+]
+dependencies = [
+    "mcp>=1.0.0",
+    "httpx>=0.27.0",
+]
+
+[project.urls]
+Homepage = "https://thedailyworkflow.com/mcp"
+Documentation = "https://thedailyworkflow.com/mcp/tutorials"
+Repository = "https://github.com/vlsky2603/thedailyworkflow-mcp"
+"Bug Tracker" = "https://github.com/vlsky2603/thedailyworkflow-mcp/issues"
+Catalog = "https://thedailyworkflow.com/mcp"
+
+[project.scripts]
+thedailyworkflow-mcp = "thedailyworkflow_mcp.server:main"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/thedailyworkflow_mcp"]
