@@ -34,7 +34,18 @@ __version__ = "0.3.0"
 API_BASE = os.getenv("THEDAILYWORKFLOW_API", "https://thedailyworkflow.com/api/v1")
 HTTP_TIMEOUT = 15.0
 
-mcp = FastMCP("thedailyworkflow-mcp")
+# When TDW_HTTP=1, run as standalone Streamable HTTP server (for VPS hosting).
+# Otherwise, run as stdio server (for local uvx/pip install).
+_STREAMABLE_HTTP = os.environ.get("TDW_HTTP") == "1"
+
+_mcp_kwargs = {"name": "thedailyworkflow-mcp"}
+if _STREAMABLE_HTTP:
+    _mcp_kwargs.update({
+        "host": os.environ.get("TDW_HOST", "127.0.0.1"),
+        "port": int(os.environ.get("TDW_PORT", "8765")),
+    })
+
+mcp = FastMCP(**_mcp_kwargs)
 _client = httpx.Client(timeout=HTTP_TIMEOUT, headers={
     "User-Agent": f"thedailyworkflow-mcp/{__version__}",
     "Accept": "application/json",
@@ -440,7 +451,10 @@ def search_prompts(
 
 def main() -> None:
     """Entry point for the `thedailyworkflow-mcp` CLI."""
-    mcp.run()
+    if _STREAMABLE_HTTP:
+        mcp.run(transport="streamable-http")
+    else:
+        mcp.run(transport="stdio")
 
 
 if __name__ == "__main__":
