@@ -29,7 +29,7 @@ from typing import Any
 import httpx
 from mcp.server.fastmcp import FastMCP
 
-__version__ = "0.3.0"
+__version__ = "0.3.1"
 
 API_BASE = os.getenv("THEDAILYWORKFLOW_API", "https://thedailyworkflow.com/api/v1")
 HTTP_TIMEOUT = 15.0

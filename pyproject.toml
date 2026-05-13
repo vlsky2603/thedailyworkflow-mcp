@@ -4,7 +4,7 @@ build-backend = "hatchling.build"
 
 [project]
 name = "thedailyworkflow-mcp"
-version = "0.3.0"
+version = "0.3.1"
 description = "MCP server bridging Claude/Cursor to thedailyworkflow.com — discover 3500+ MCP servers, 15000+ AI tools, 200+ pipelines, 147+ tutorials, 147+ Q&A cases, 1700+ prompts."
 readme = "README.md"
 license = {text = "MIT"}
