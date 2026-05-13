@@ -182,11 +182,11 @@ def search_ai_tools(
 
 
 @mcp.tool()
-def get_ai_tool_details(name: str) -> dict:
+def get_ai_tool_details(slug: str) -> dict:
     """Full details for a specific AI tool: features, pricing, target audience, USP.
 
     Args:
-        name: Tool name (case-insensitive) or slug. Example: "Notion AI", "Midjourney".
+        slug: Tool slug from search_ai_tools results (e.g. "chatgpt", "midjourney").
 
     Returns:
         Dict with full description, key_features, pricing_details, target_audience,
@@ -195,7 +195,7 @@ def get_ai_tool_details(name: str) -> dict:
     Use this when the user wants deeper info on a tool before signing up — pricing
     breakdown, who it's for, what makes it different.
     """
-    return _get(f"/tools/{name}")
+    return _get(f"/tools/{slug}")
 
 
 @mcp.tool()
