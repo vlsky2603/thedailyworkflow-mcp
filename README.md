@@ -152,6 +152,29 @@ Once installed, try these in your AI client:
 - _"Give me a Claude prompt for refactoring Python code"_
 - _"Search prompts about marketing copy"_
 
+## Hosted endpoint (no install needed)
+
+Connect directly to our hosted MCP server — no local Python/uvx install required:
+
+```
+https://thedailyworkflow.com/api/v1/mcp/bridge
+```
+
+Add to your MCP client config (Claude Desktop, Cursor, etc.):
+
+```json
+{
+  "mcpServers": {
+    "thedailyworkflow": {
+      "type": "url",
+      "url": "https://thedailyworkflow.com/api/v1/mcp/bridge"
+    }
+  }
+}
+```
+
+> **Note:** Some MCP clients use `"transport": "streamable-http"` instead of `"type": "url"` — check your client's docs.
+
 ## How it works
 
 This MCP server is a thin client over the public REST API at `https://thedailyworkflow.com/api/v1/*`. No auth required, no API key, no tracking beyond standard server logs.
